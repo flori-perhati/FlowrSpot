@@ -4,4 +4,9 @@
     <string name="item_2">Item 2</string>
     <string name="item_3">Item 3</string>
     <string name="item_4">Item 4</string>
+    <string name="looking_for_something_specific">Looking for something specific?</string>
+    <string name="discover_flowers_around_you">Discover flowers around you</string>
+    <string name="flower_details">Flower Details</string>
+    <string name="explore_between_more_than_8_427_sightings">Explore between more than 8.427 sightings</string>
+    <string name="settings">Settings</string>
 </resources>

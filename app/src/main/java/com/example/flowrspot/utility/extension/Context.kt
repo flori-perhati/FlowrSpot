@@ -1,10 +1,14 @@
 package com.example.flowrspot.utility.extension
 
+import android.app.Dialog
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.widget.Toast
 import androidx.annotation.StringRes
+import com.example.flowrspot.R
 
 /**
  * Displays a short toast using CharSequence as e message.
@@ -29,6 +33,17 @@ fun Context.longToast(message: CharSequence) =
  */
 fun Context.longToast(@StringRes resId: Int) =
     Toast.makeText(this, resId, Toast.LENGTH_LONG).show()
+
+/**
+ * Provides a progressDialog.
+ */
+fun Context.progressDialog(): Dialog {
+    val dialog = Dialog(this)
+    dialog.setCancelable(false)
+    dialog.setContentView(R.layout.custom_progress_dialog)
+    dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    return dialog
+}
 
 /**
  * Check for internet connection.

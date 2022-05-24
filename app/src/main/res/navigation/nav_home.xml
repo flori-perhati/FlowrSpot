@@ -8,5 +8,14 @@
         android:id="@+id/home_fragment"
         android:name="com.example.flowrspot.feature.home.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/navigate_to_flower_details"
+            app:destination="@id/flower_details_fragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/flower_details_fragment"
+        android:name="com.example.flowrspot.feature.home.flower_details.FlowerDetailsFragment"
+        android:label="@string/flower_details"
+        tools:layout="@layout/fragment_flower_details"/>
 </navigation>

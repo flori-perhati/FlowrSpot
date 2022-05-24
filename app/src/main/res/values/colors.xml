@@ -11,6 +11,13 @@
     // App colors
 
     <color name="main_color">#EAA79E</color>
+    <color name="hint_color">#949EA0</color>
+
+    <!--  Dark Characters  -->
+
+    <color name="transparent_black_5">#0D000000</color> // 5%
+    <color name="transparent_black_15">#26000000</color> // 15%
+    <color name="transparent_black_25">#40000000</color> // 25%
 
     // Colors by MaterialDesign
 

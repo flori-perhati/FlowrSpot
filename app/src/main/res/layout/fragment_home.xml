@@ -5,12 +5,83 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/pl_hero"
-        app:layout_constraintDimensionRatio="H, 1.14:1"
+        app:layout_constraintDimensionRatio="H, 1.143:1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_26"
+        android:text="@string/discover_flowers_around_you"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_24"
+        android:fontFamily="@font/ubuntu_light"
+        app:layout_constraintBottom_toTopOf="@+id/tv_explore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_explore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/explore_between_more_than_8_427_sightings"
+        android:textSize="@dimen/text_size_15"
+        android:textColor="@color/white"
+        android:fontFamily="@font/ubuntu_light"
+        android:layout_marginHorizontal="@dimen/dimen_34"
+        app:layout_constraintTop_toTopOf="@id/img"
+        app:layout_constraintBottom_toBottomOf="@id/img"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/dimen_12"
+        android:layout_marginTop="@dimen/dimen_24"
+        android:gravity="center_vertical"
+        android:layout_marginHorizontal="@dimen/dimen_26"
+        android:background="@drawable/background_round_corner_3"
+        app:layout_constraintTop_toBottomOf="@id/tv_explore">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="@dimen/dimen_20"
+            android:inputType="text|textNoSuggestions"
+            android:hint="@string/looking_for_something_specific"
+            android:textSize="@dimen/text_size_14"
+            android:textColorHint="@color/hint_color"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:selectAllOnFocus="true"
+            android:background="@color/white"
+            android:fontFamily="@font/ubuntu_light"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_4"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:src="@drawable/ic_pl_icon_search"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_flowers"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        android:layout_marginVertical="@dimen/dimen_6"
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        app:layout_constraintTop_toBottomOf="@+id/img"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

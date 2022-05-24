@@ -8,7 +8,12 @@ data class FlowerModel(
     val sightings: Int
 ) {
     val imagePath: String
-        get() = "https:$profilePicture"
+        get() {
+            return if (!profilePicture.contains("https"))
+                "https:$profilePicture"
+            else
+                profilePicture
+        }
 
     val numberOfSightings: String
         get() {
