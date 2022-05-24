@@ -1,6 +1,5 @@
 package com.example.flowrspot.data.repository
 
-import com.example.flowrspot.data.dto.Flower
 import com.example.flowrspot.data.dto.toFlowerModelList
 import com.example.flowrspot.data.service.FlowrSpotService
 import com.example.flowrspot.domain.model.FlowerModel

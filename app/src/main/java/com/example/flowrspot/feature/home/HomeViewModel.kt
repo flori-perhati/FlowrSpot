@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.flowrspot.domain.model.FlowerModel
 import com.example.flowrspot.domain.use_case.FlowrSpotUseCases
+import com.example.flowrspot.utility.dispatcher.DispatcherProvider
 import com.example.flowrspot.utility.network.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -14,6 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
+    private val dispatchers: DispatcherProvider,
     private val flowrSpotUseCases: FlowrSpotUseCases
 ): ViewModel() {
 
@@ -59,7 +61,7 @@ class HomeViewModel @Inject constructor(
      */
     fun retrieveFlowers() {
         page++
-        viewModelScope.launch {
+        viewModelScope.launch(dispatchers.main) {
             flowrSpotUseCases.retrieveFlowersUseCase(page).collect {
                 when(it) {
                     is Resource.Loading<*> -> _state.emit(HomeState.ShowProgressBar)
@@ -84,11 +86,11 @@ class HomeViewModel @Inject constructor(
      */
     fun searchFlowers(value: String) {
         if (value.isEmpty()) {
-            viewModelScope.launch { _state.emit(HomeState.ToastMessage("Search field is empty!!!")) }
+            viewModelScope.launch(dispatchers.main) { _state.emit(HomeState.ToastMessage("Search field is empty!!!")) }
             return
         }
 
-        viewModelScope.launch {
+        viewModelScope.launch(dispatchers.main) {
             flowrSpotUseCases.searchFlowersUseCase(value).collect {
                 when(it) {
                     is Resource.Loading<*> -> _state.emit(HomeState.ShowProgressBar)
@@ -113,7 +115,7 @@ class HomeViewModel @Inject constructor(
         //
         mainList.clear()
         mainList.addAll(availableFlowers)
-        viewModelScope.launch {
+        viewModelScope.launch(dispatchers.main) {
             _state.emit(HomeState.UpdateFlowersView)
         }
     }
