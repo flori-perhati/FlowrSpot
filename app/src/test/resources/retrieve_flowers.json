@@ -1,0 +1,20 @@
+{
+  "flowers": [
+    {
+      "id": 28,
+      "name": "bb",
+      "latin_name": "bb",
+      "sightings": 6,
+      "profile_picture": "https://flowrspot-api.herokuapp.com/images/medium/missing.jpg",
+      "favorite": false
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "current_page": 1,
+      "prev_page": null,
+      "next_page": 2,
+      "total_pages": 4
+    }
+  }
+}
